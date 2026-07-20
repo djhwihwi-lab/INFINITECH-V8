@@ -16,39 +16,46 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 w-full z-50 glass">
+
       <div className="container mx-auto flex items-center justify-between px-6 py-4">
 
         <div className="text-2xl font-bold">
-          <span className="text-cyan-400">INFINITECH</span>
-          <span className="text-white">.</span>
+          <span className="text-cyan-400">
+            INFINITECH
+          </span>
+          .
         </div>
 
+
         <button
-          className="md:hidden text-white text-2xl"
+          className="md:hidden text-3xl text-white"
           onClick={() => setOpen(!open)}
         >
-          ☰
+          {open ? "✕" : "☰"}
         </button>
+
 
         <div
           className={`${
-            open ? "block" : "hidden"
-          } md:flex absolute md:static top-full left-0 w-full md:w-auto bg-black/80 md:bg-transparent`}
+            open ? "flex" : "hidden"
+          } md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#050816]/95 md:bg-transparent p-6 md:p-0 gap-6`}
         >
-          <div className="flex flex-col md:flex-row gap-6 p-6 md:p-0">
-            {links.map((link) => (
-              <a
-                key={link}
-                href="#"
-                className="text-gray-200 hover:text-cyan-400 transition"
-              >
-                {link}
-              </a>
-            ))}
-          </div>
+
+          {links.map((link) => (
+            <a
+              key={link}
+              href="#"
+              onClick={() => setOpen(false)}
+              className="text-gray-200 hover:text-cyan-400 transition"
+            >
+              {link}
+            </a>
+          ))}
+
         </div>
 
       </div>
+
     </nav>
   );
 }
