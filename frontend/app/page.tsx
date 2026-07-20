@@ -1,4 +1,9 @@
-import Navbar from "@/components/Navbar";
+import ServicesSection from "@/components/ServicesSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import WhyChooseUs from "@/components/WhyChooseUs";
+import Testimonials from "@/components/Testimonials";
+import FAQ from "@/components/FAQ";
+import QuoteCTA from "@/components/QuoteCTA";import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 
@@ -8,7 +13,12 @@ export default function Home() {
       <Navbar />
 
       <Hero />
-
+<ServicesSection />
+<ProjectsSection />
+<WhyChooseUs />
+<Testimonials />
+<FAQ />
+<QuoteCTA />
       <section className="section">
         <div className="container">
 
