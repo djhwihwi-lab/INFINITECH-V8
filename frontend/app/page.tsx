@@ -1,4 +1,4 @@
-import ServicesSection from "@/components/ServicesSection";
+import WhatsAppButton from "@/components/WhatsAppButton";import ServicesSection from "@/components/ServicesSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Testimonials from "@/components/Testimonials";
@@ -64,7 +64,7 @@ export default function Home() {
       </section>
 
       <Footer />
-
+<WhatsAppButton />
     </main>
   );
 }
