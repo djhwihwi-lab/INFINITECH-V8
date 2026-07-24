@@ -1,4 +1,4 @@
-"use client";
+"use client";import Image from "next/image";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -21,19 +21,19 @@ export default function Navbar() {
         
         {/* INFINITECH LOGO */}
         <Link
-          href="/"
-          onClick={() => setOpen(false)}
-          className="relative z-[100000] flex items-center gap-2 text-2xl font-bold tracking-wide text-white hover:text-cyan-400 transition-colors cursor-pointer select-none"
-          aria-label="INFINITECH Home"
-        >
-          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/50 bg-cyan-400/10 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.25)]">
-            I
-          </span>
-
-          <span>
-            <span className="text-cyan-400">INFINITECH</span>
-          </span>
-        </Link>
+  href="/"
+  onClick={() => setOpen(false)}
+  className="relative z-[100000] flex items-center cursor-pointer"
+  aria-label="INFINITECH Home"
+>
+  <Image
+    src="/logo.svg"
+    alt="INFINITECH Zimbabwe"
+    width={210}
+    height={50}
+    priority
+  />
+</Link>
 
         {/* MOBILE MENU BUTTON */}
         <button
