@@ -1,9 +1,11 @@
+import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-[#050816] text-white">
       <section className="section pt-32">
         <div className="container">
-
           <p className="text-cyan-400 uppercase tracking-widest mb-4">
             About INFINITECH
           </p>
@@ -20,7 +22,6 @@ export default function AboutPage() {
           </p>
 
           <div className="grid md:grid-cols-3 gap-6 mt-12">
-
             <div className="glass p-6">
               <h2 className="text-xl font-bold text-cyan-400">
                 Innovation
@@ -51,23 +52,12 @@ export default function AboutPage() {
               </p>
             </div>
 
-          </div>
-
-        </div>
-      </section>
-    </main>
-  );
-}                maintenance and engineering solutions.
-              </p>
-            </div>
-
             <div className="glass p-6">
               <h3 className="text-xl font-bold text-cyan-400">
                 Solar Energy
               </h3>
               <p className="text-gray-300 mt-3">
-                Reliable renewable energy systems
-                for homes and businesses.
+                Reliable renewable energy systems for homes and businesses.
               </p>
             </div>
 
@@ -76,18 +66,15 @@ export default function AboutPage() {
                 Smart Technology
               </h3>
               <p className="text-gray-300 mt-3">
-                Automation, networking and
-                intelligent systems.
+                Automation, networking and intelligent systems.
               </p>
             </div>
-
           </div>
-
         </div>
       </section>
 
       <Footer />
-<WhatsAppButton />
+      <WhatsAppButton />
     </main>
   );
 }
