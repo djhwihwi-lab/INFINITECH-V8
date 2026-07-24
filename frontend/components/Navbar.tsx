@@ -3,48 +3,61 @@
 import { useState } from "react";
 import Link from "next/link";
 
+const links = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+  { name: "Projects", href: "/projects" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
-    { name: "Projects", href: "/projects" },
-    { name: "Careers", href: "/careers" },
-    { name: "Contact", href: "/contact" },
-  ];
-
   return (
-    <nav className="fixed top-0 left-0 w-full z-[9999] bg-[#050816] border-b border-cyan-400/30">
-      <div className="container mx-auto flex items-center justify-between px-6 py-4">
+    <nav className="fixed top-0 left-0 right-0 z-[99999] w-full bg-[#050816]/95 backdrop-blur-md border-b border-cyan-400/30 pointer-events-auto">
+      <div className="container mx-auto flex min-h-[72px] items-center justify-between px-6">
+        
+        {/* INFINITECH LOGO */}
         <Link
           href="/"
           onClick={() => setOpen(false)}
-          className="text-2xl font-bold text-white"
+          className="relative z-[100000] flex items-center gap-2 text-2xl font-bold tracking-wide text-white hover:text-cyan-400 transition-colors cursor-pointer select-none"
+          aria-label="INFINITECH Home"
         >
-          <span className="text-cyan-400">INFINITECH</span>.
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-cyan-400/50 bg-cyan-400/10 text-cyan-400 shadow-[0_0_20px_rgba(34,211,238,0.25)]">
+            I
+          </span>
+
+          <span>
+            <span className="text-cyan-400">INFINITECH</span>
+          </span>
         </Link>
 
+        {/* MOBILE MENU BUTTON */}
         <button
-          className="md:hidden text-3xl text-white"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle navigation menu"
+          type="button"
+          className="relative z-[100000] flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/30 text-2xl text-white hover:bg-cyan-400/10 md:hidden cursor-pointer"
+          onClick={() => setOpen((current) => !current)}
+          aria-label={open ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={open}
         >
           {open ? "✕" : "☰"}
         </button>
 
+        {/* NAVIGATION LINKS */}
         <div
           className={`${
             open ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row absolute md:static top-full left-0 w-full md:w-auto bg-[#050816] md:bg-transparent p-6 md:p-0 gap-6`}
+          } absolute left-0 top-full z-[99999] w-full flex-col gap-4 border-b border-cyan-400/20 bg-[#050816] p-6 md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0`}
         >
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="text-gray-200 hover:text-cyan-400 transition"
+              className="relative z-[100000] block cursor-pointer py-2 text-gray-200 transition-colors hover:text-cyan-400"
             >
               {link.name}
             </Link>
