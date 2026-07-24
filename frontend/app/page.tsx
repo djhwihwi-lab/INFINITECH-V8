@@ -55,7 +55,7 @@ export default function HomePage() {
   {/* Hero Background Image */}
   <div className="absolute inset-0">
     <img
-      src="/Images/hero.jpg"
+      src="/Images/InShot_20260724_191103049.jpg"
       alt="INFINITECH engineering and technology solutions"
       className="h-full w-full object-cover"
     />
