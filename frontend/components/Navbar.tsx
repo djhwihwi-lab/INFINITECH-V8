@@ -34,7 +34,6 @@ export default function Navbar() {
     priority
   />
 </Link>
-
         {/* MOBILE MENU BUTTON */}
         <button
           type="button"
