@@ -16,13 +16,14 @@ const links = [
 ];
 
 return (
-<nav className="fixed top-0 left-0 w-full z-50 glass">
+<nav className="fixed top-0 left-0 w-full z-[9999] bg-[#050816] border-b border-cyan-400/30">
 <div className="container mx-auto flex items-center justify-between px-6 py-4">
 
     <Link
-      href="/"
-      onClick={() => setOpen(false)}
-      className="text-2xl font-bold"
+  href="/"
+  onClick={() => setOpen(false)}
+  className="text-2xl font-bold text-white"
+>
     >
       <span className="text-cyan-400">
         INFINITECH
