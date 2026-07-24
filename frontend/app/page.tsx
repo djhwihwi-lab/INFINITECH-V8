@@ -51,62 +51,79 @@ export default function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-[#050816] text-white">
       {/* HERO SECTION */}
-      <section className="relative flex min-h-screen items-center pt-24">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="absolute left-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px]" />
-          <div className="absolute bottom-[-10%] right-[-5%] h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[140px]" />
-          <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/5 blur-[100px]" />
-        </div>
+<section className="relative flex min-h-screen items-center overflow-hidden pt-24">
+  {/* Hero Background Image */}
+  <div className="absolute inset-0">
+    <img
+      src="/Images/hero.jpg"
+      alt="INFINITECH engineering and technology solutions"
+      className="h-full w-full object-cover"
+    />
 
-        <div className="container relative z-10 mx-auto px-6 py-20">
-          <div className="max-w-5xl">
-            <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
-              <span className="text-sm tracking-wider text-cyan-300">
-                ENGINEERING • TECHNOLOGY • INNOVATION
-              </span>
-            </div>
+    {/* Dark overlay */}
+    <div className="absolute inset-0 bg-[#050816]/75" />
 
-            <h1 className="max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
-              Engineering
-              <span className="block bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                The Future.
-              </span>
-            </h1>
+    {/* Gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-[#050816] via-[#050816]/80 to-[#050816]/40" />
 
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-gray-300 md:text-xl">
-              INFINITECH is a Zimbabwean technology and engineering company
-              delivering innovative solutions across electrical engineering,
-              renewable energy, automation, networking, security and smart
-              technology.
-            </p>
+    {/* Cyan glow */}
+    <div className="absolute inset-0 bg-cyan-500/[0.04]" />
+  </div>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-8 py-4 font-semibold text-[#050816] transition-all duration-300 hover:scale-105 hover:bg-cyan-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.35)]"
-              >
-                Request a Quote
-                <span className="ml-2">→</span>
-              </Link>
+  {/* Background glow */}
+  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className="absolute left-[-10%] top-[10%] h-[500px] w-[500px] rounded-full bg-cyan-500/10 blur-[120px]" />
+    <div className="absolute bottom-[-10%] right-[-5%] h-[600px] w-[600px] rounded-full bg-blue-600/10 blur-[140px]" />
+  </div>
 
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-400/10"
-              >
-                Explore Our Services
-              </Link>
-            </div>
-          </div>
+  <div className="container relative z-10 mx-auto px-6 py-20">
+    <div className="max-w-5xl">
+      <div className="mb-6 inline-flex items-center gap-3 rounded-full border border-cyan-400/20 bg-cyan-400/5 px-4 py-2 backdrop-blur-md">
+        <span className="h-2 w-2 animate-pulse rounded-full bg-cyan-400" />
+        <span className="text-sm tracking-wider text-cyan-300">
+          ENGINEERING • TECHNOLOGY • INNOVATION
+        </span>
+      </div>
 
-          {/* Scroll indicator */}
-          <div className="mt-20 flex items-center gap-3 text-sm text-gray-500">
-            <div className="h-px w-12 bg-cyan-400/50" />
-            <span>Scroll to explore</span>
-          </div>
-        </div>
-      </section>
+      <h1 className="max-w-5xl text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl">
+        Engineering
+        <span className="block bg-gradient-to-r from-cyan-300 via-cyan-400 to-blue-500 bg-clip-text text-transparent">
+          The Future.
+        </span>
+      </h1>
+
+      <p className="mt-8 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl">
+        INFINITECH is a Zimbabwean technology and engineering company
+        delivering innovative solutions across electrical engineering,
+        renewable energy, automation, networking, security and smart
+        technology.
+      </p>
+
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+        <Link
+          href="/contact"
+          className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-8 py-4 font-semibold text-[#050816] transition-all duration-300 hover:scale-105 hover:bg-cyan-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.35)]"
+        >
+          Request a Quote
+          <span className="ml-2">→</span>
+        </Link>
+
+        <Link
+          href="/services"
+          className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-8 py-4 font-semibold text-white backdrop-blur-md transition-all duration-300 hover:border-cyan-400/50 hover:bg-cyan-400/10"
+        >
+          Explore Our Services
+        </Link>
+      </div>
+    </div>
+
+    {/* Scroll indicator */}
+    <div className="mt-20 flex items-center gap-3 text-sm text-gray-400">
+      <div className="h-px w-12 bg-cyan-400/50" />
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</section>
 
       {/* STATS */}
       <section className="border-y border-white/10 bg-white/[0.02]">
