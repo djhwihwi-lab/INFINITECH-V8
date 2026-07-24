@@ -1,40 +1,63 @@
-import WhatsAppButton from "@/components/WhatsAppButton";import ServicesSection from "@/components/ServicesSection";
-import ProjectsSection from "@/components/ProjectsSection";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import Testimonials from "@/components/Testimonials";
-import FAQ from "@/components/FAQ";
-import QuoteCTA from "@/components/QuoteCTA";import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Footer from "@/components/Footer";
-
-export default function Home() {
+export default function AboutPage() {
   return (
-    <main>
-      <Navbar />
-
-      <Hero />
-<ServicesSection />
-<ProjectsSection />
-<WhyChooseUs />
-<Testimonials />
-<FAQ />
-<QuoteCTA />
-      <section className="section">
+    <main className="min-h-screen bg-[#050816] text-white">
+      <section className="section pt-32">
         <div className="container">
 
-          <h2 className="text-4xl font-bold mb-8">
-            Our Technology Solutions
-          </h2>
+          <p className="text-cyan-400 uppercase tracking-widest mb-4">
+            About INFINITECH
+          </p>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+            Engineering The Future
+          </h1>
+
+          <p className="text-gray-300 text-lg max-w-3xl leading-relaxed">
+            INFINITECH is a Zimbabwean technology and engineering company
+            delivering innovative solutions across electrical engineering,
+            renewable energy, automation, networking, security and smart
+            technology.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-6 mt-12">
 
             <div className="glass p-6">
-              <h3 className="text-xl font-bold text-cyan-400">
-                Electrical Engineering
-              </h3>
+              <h2 className="text-xl font-bold text-cyan-400">
+                Innovation
+              </h2>
               <p className="text-gray-300 mt-3">
-                Professional electrical installations,
-                maintenance and engineering solutions.
+                We embrace modern technologies to create smarter,
+                more efficient solutions.
+              </p>
+            </div>
+
+            <div className="glass p-6">
+              <h2 className="text-xl font-bold text-cyan-400">
+                Engineering
+              </h2>
+              <p className="text-gray-300 mt-3">
+                We combine engineering expertise with practical
+                technology solutions.
+              </p>
+            </div>
+
+            <div className="glass p-6">
+              <h2 className="text-xl font-bold text-cyan-400">
+                The Future
+              </h2>
+              <p className="text-gray-300 mt-3">
+                Our mission is to help build a smarter, connected
+                and sustainable future.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+    </main>
+  );
+}                maintenance and engineering solutions.
               </p>
             </div>
 
