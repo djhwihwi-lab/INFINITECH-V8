@@ -1,4 +1,6 @@
 import LoadingScreen from "@/components/LoadingScreen";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -30,9 +32,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-  <LoadingScreen />
-  {children}
-</body>
+        <LoadingScreen />
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }
