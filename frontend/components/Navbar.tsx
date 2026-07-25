@@ -39,10 +39,7 @@ return (
     {/* MOBILE MENU BUTTON */}
     <button
       type="button"
-      onClick={() => {
-  alert("MENU BUTTON WORKS");
-  setOpen(!open);
-}}
+  onClick={() => setOpen(!open)}
       className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/40 text-2xl text-white hover:bg-cyan-400/10 md:hidden"
       aria-label={open ? "Close navigation menu" : "Open navigation menu"}
       aria-expanded={open}
@@ -51,20 +48,20 @@ return (
     </button>
 
     {/* NAVIGATION LINKS */}
-    <div
-      className={`absolute left-0 top-[72px] w-full border-b border-cyan-400/20 bg-[#050816] px-6 py-6 md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 ${
-        open ? "block" : "hidden"
-      }`}
-    >
-      {links.map((link) => (
-        <Link
-          key={link.name}
-          href={link.href}
-          onClick={() => setOpen(false)}
-          className="block py-3 text-gray-200 transition-colors hover:text-cyan-400 md:py-2"
-        >
-          {link.name}
-        </Link>
+{open && (
+  <div className="absolute left-0 top-[72px] z-[9999] flex w-full flex-col gap-2 border-b border-cyan-400/30 bg-[#050816] p-6 shadow-2xl md:static md:flex md:w-auto md:flex-row md:items-center md:gap-6 md:border-0 md:bg-transparent md:p-0 md:shadow-none">
+    {links.map((link) => (
+      <Link
+        key={link.name}
+        href={link.href}
+        onClick={() => setOpen(false)}
+        className="block cursor-pointer py-3 text-lg text-white transition-colors hover:text-cyan-400 md:py-2 md:text-base"
+      >
+        {link.name}
+      </Link>
+    ))}
+  </div>
+)}
       ))}
     </div>
 
