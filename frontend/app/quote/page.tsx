@@ -15,10 +15,60 @@ const services = [
 
 export default function QuotePage() {
 const [submitted, setSubmitted] = useState(false);
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState("");
 
-function handleSubmit(event: FormEvent<HTMLFormElement>) {
+async function handleSubmit(event: FormEvent<HTMLFormElement>) {
 event.preventDefault();
-setSubmitted(true);
+
+setLoading(true);
+setError("");
+
+const form = event.currentTarget;
+const formData = new FormData(form);
+
+const data = {
+  name: formData.get("name"),
+  company: formData.get("company"),
+  email: formData.get("email"),
+  phone: formData.get("phone"),
+  service: formData.get("service"),
+  location: formData.get("location"),
+  message: formData.get("message"),
+  budget: formData.get("budget"),
+};
+
+try {
+  const response = await fetch("/api/quotes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      result.message || "Failed to submit quote request."
+    );
+  }
+
+  setSubmitted(true);
+  form.reset();
+} catch (error) {
+  console.error("Quote submission error:", error);
+
+  setError(
+    error instanceof Error
+      ? error.message
+      : "Something went wrong. Please try again."
+  );
+} finally {
+  setLoading(false);
+}
+
 }
 
 return (
@@ -42,11 +92,12 @@ return (
       </p>
     </div>
 
-    {/* FORM */}
+    {/* FORM CARD */}
     <div className="rounded-3xl border border-cyan-400/20 bg-white/[0.03] p-6 shadow-2xl backdrop-blur-md sm:p-10">
 
       {submitted ? (
         <div className="py-16 text-center">
+
           <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-cyan-400/10 text-3xl text-cyan-400">
             ✓
           </div>
@@ -56,8 +107,9 @@ return (
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-gray-300">
-            Thank you for contacting INFINITECH. Our team will review your
-            project details and get back to you as soon as possible.
+            Thank you for contacting INFINITECH. Your request has been
+            received successfully. Our team will review your project
+            details and get back to you as soon as possible.
           </p>
 
           <button
@@ -67,6 +119,7 @@ return (
           >
             Submit Another Request
           </button>
+
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-8">
@@ -83,6 +136,7 @@ return (
                 <label className="mb-2 block text-sm text-gray-300">
                   Full Name *
                 </label>
+
                 <input
                   type="text"
                   name="name"
@@ -96,6 +150,7 @@ return (
                 <label className="mb-2 block text-sm text-gray-300">
                   Company / Organisation
                 </label>
+
                 <input
                   type="text"
                   name="company"
@@ -108,6 +163,7 @@ return (
                 <label className="mb-2 block text-sm text-gray-300">
                   Email Address *
                 </label>
+
                 <input
                   type="email"
                   name="email"
@@ -121,6 +177,7 @@ return (
                 <label className="mb-2 block text-sm text-gray-300">
                   Phone / WhatsApp *
                 </label>
+
                 <input
                   type="tel"
                   name="phone"
@@ -208,14 +265,24 @@ return (
             </div>
           </div>
 
+          {/* ERROR MESSAGE */}
+          {error && (
+            <div className="rounded-xl border border-red-400/30 bg-red-400/10 p-4 text-sm text-red-300">
+              {error}
+            </div>
+          )}
+
           {/* SUBMIT */}
           <div className="border-t border-white/10 pt-8">
 
             <button
               type="submit"
-              className="w-full rounded-full bg-cyan-400 px-8 py-4 font-semibold text-[#050816] transition-all duration-300 hover:scale-[1.02] hover:bg-cyan-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.35)]"
+              disabled={loading}
+              className="w-full rounded-full bg-cyan-400 px-8 py-4 font-semibold text-[#050816] transition-all duration-300 hover:scale-[1.02] hover:bg-cyan-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.35)] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Submit Quote Request →
+              {loading
+                ? "Sending Request..."
+                : "Submit Quote Request →"}
             </button>
 
             <p className="mt-4 text-center text-sm text-gray-500">
@@ -233,4 +300,4 @@ return (
 </main>
 
 );
-}
+            }
