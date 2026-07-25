@@ -101,7 +101,7 @@ export default function HomePage() {
 
       <div className="mt-10 flex flex-col gap-4 sm:flex-row">
         <Link
-          href="/contact"
+          href="/quote"
           className="inline-flex items-center justify-center rounded-full bg-cyan-400 px-8 py-4 font-semibold text-[#050816] transition-all duration-300 hover:scale-105 hover:bg-cyan-300 hover:shadow-[0_0_35px_rgba(34,211,238,0.35)]"
         >
           Request a Quote
