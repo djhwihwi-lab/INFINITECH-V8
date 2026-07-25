@@ -39,7 +39,10 @@ return (
     {/* MOBILE MENU BUTTON */}
     <button
       type="button"
-      onClick={() => setOpen(!open)}
+      onClick={() => {
+  alert("MENU BUTTON WORKS");
+  setOpen(!open);
+}}
       className="flex h-10 w-10 items-center justify-center rounded-lg border border-cyan-400/40 text-2xl text-white hover:bg-cyan-400/10 md:hidden"
       aria-label={open ? "Close navigation menu" : "Open navigation menu"}
       aria-expanded={open}
