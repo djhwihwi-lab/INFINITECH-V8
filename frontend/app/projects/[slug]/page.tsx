@@ -6,15 +6,9 @@ const projects = {
     category: "Solar Energy",
     image: "/projects/solar.jpg",
     description:
-      "A professional solar power solution designed to provide reliable, efficient and sustainable energy.",
+      "Professional solar power installation designed to provide reliable, efficient and sustainable energy solutions.",
     details:
-      "INFINITECH delivers complete solar solutions, from system design and equipment selection to installation, testing and commissioning.",
-    features: [
-      "Solar panel installation",
-      "Inverter systems",
-      "Battery storage",
-      "System testing and commissioning",
-    ],
+      "INFINITECH provides professional solar power solutions designed to reduce dependence on traditional electricity sources while providing reliable and sustainable power.",
   },
 
   "electrical-installation": {
@@ -22,15 +16,9 @@ const projects = {
     category: "Electrical Engineering",
     image: "/projects/electrical.jpg",
     description:
-      "Safe, efficient and professional electrical installations for residential and commercial environments.",
+      "Complete electrical installation services for residential and commercial environments.",
     details:
-      "Our electrical engineering solutions are designed around safety, reliability and quality workmanship.",
-    features: [
-      "Electrical wiring",
-      "Distribution boards",
-      "Lighting systems",
-      "Testing and maintenance",
-    ],
+      "Our electrical installation services cover safe, reliable and professionally designed electrical systems for homes, businesses and commercial environments.",
   },
 
   "cctv-security-system": {
@@ -38,15 +26,9 @@ const projects = {
     category: "Security",
     image: "/projects/cctv.jpg",
     description:
-      "Modern CCTV surveillance technology designed to improve security and provide reliable monitoring.",
+      "Modern CCTV surveillance systems providing reliable security monitoring and protection.",
     details:
-      "INFINITECH provides professional CCTV solutions with high-definition cameras, recording systems and remote monitoring capabilities.",
-    features: [
-      "HD CCTV cameras",
-      "Digital video recording",
-      "Remote monitoring",
-      "Security system installation",
-    ],
+      "INFINITECH designs and installs modern CCTV surveillance systems to help businesses and homeowners monitor and protect their properties.",
   },
 
   "networking-infrastructure": {
@@ -54,19 +36,11 @@ const projects = {
     category: "Networking",
     image: "/projects/networking.jpg",
     description:
-      "Fast, secure and reliable networking infrastructure for modern homes and businesses.",
+      "Structured networking solutions designed for fast, secure and reliable connectivity.",
     details:
-      "We design and install structured networking systems that provide dependable connectivity and room for future expansion.",
-    features: [
-      "Structured cabling",
-      "Network equipment installation",
-      "Wi-Fi infrastructure",
-      "Network testing and configuration",
-    ],
+      "We provide structured networking infrastructure designed to deliver dependable connectivity for homes, offices and commercial environments.",
   },
 };
-
-type ProjectSlug = keyof typeof projects;
 
 export default async function ProjectPage({
   params,
@@ -75,7 +49,7 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params;
 
-  const project = projects[slug as ProjectSlug];
+  const project = projects[slug as keyof typeof projects];
 
   if (!project) {
     return (
@@ -89,7 +63,7 @@ export default async function ProjectPage({
 
           <Link
             href="/projects"
-            className="mt-8 inline-block rounded-full border border-cyan-400 px-6 py-3 font-semibold text-cyan-400 transition hover:bg-cyan-400 hover:text-black"
+            className="mt-8 inline-block rounded-full bg-cyan-400 px-7 py-3 font-bold text-black transition hover:bg-cyan-300"
           >
             ← Back to Projects
           </Link>
@@ -101,95 +75,60 @@ export default async function ProjectPage({
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Hero */}
-      <section className="relative flex min-h-[65vh] items-end overflow-hidden">
+      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
         <img
           src={project.image}
           alt={project.title}
           className="absolute inset-0 h-full w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-black/65" />
+        <div className="absolute inset-0 bg-black/70" />
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-16 pt-32">
-          <Link
-            href="/projects"
-            className="mb-8 inline-block text-sm font-semibold text-cyan-400 transition hover:text-white"
-          >
-            ← Back to Projects
-          </Link>
+        <div className="relative z-10 flex h-full items-end">
+          <div className="mx-auto w-full max-w-7xl px-6 pb-16">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              {project.category}
+            </p>
 
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-            {project.category}
-          </p>
+            <h1 className="max-w-4xl text-4xl font-bold md:text-6xl">
+              {project.title}
+            </h1>
+          </div>
+        </div>
+      </section>
 
-          <h1 className="max-w-4xl text-4xl font-bold md:text-6xl">
-            {project.title}
-          </h1>
+      {/* Project Information */}
+      <section className="mx-auto max-w-5xl px-6 py-20">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md md:p-12">
+          <h2 className="text-3xl font-bold md:text-4xl">
+            Project Overview
+          </h2>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-300">
+          <p className="mt-6 text-lg leading-relaxed text-gray-400">
             {project.description}
           </p>
-        </div>
-      </section>
 
-      {/* Details */}
-      <section className="mx-auto max-w-7xl px-6 py-20">
-        <div className="grid gap-12 md:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-              Project Overview
-            </p>
+          <p className="mt-6 leading-relaxed text-gray-400">
+            {project.details}
+          </p>
 
-            <h2 className="mt-4 text-3xl font-bold md:text-4xl">
-              Engineering built around your needs.
-            </h2>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/quote"
+              className="rounded-full bg-cyan-400 px-8 py-4 text-center font-bold text-black transition hover:scale-105 hover:bg-cyan-300"
+            >
+              Request a Quote →
+            </Link>
 
-            <p className="mt-6 leading-8 text-gray-400">
-              {project.details}
-            </p>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
-            <h3 className="text-2xl font-bold">Project Features</h3>
-
-            <div className="mt-6 space-y-4">
-              {project.features.map((feature) => (
-                <div
-                  key={feature}
-                  className="flex items-center gap-3 border-b border-white/10 pb-4"
-                >
-                  <span className="text-xl text-cyan-400">✓</span>
-
-                  <span className="text-gray-300">{feature}</span>
-                </div>
-              ))}
-            </div>
+            <Link
+              href="/projects"
+              className="rounded-full border border-white/20 px-8 py-4 text-center font-semibold transition hover:border-cyan-400 hover:text-cyan-400"
+            >
+              ← Back to Projects
+            </Link>
           </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="border-t border-white/10 px-6 py-20 text-center">
-        <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-          Start Your Project
-        </p>
-
-        <h2 className="mx-auto mt-4 max-w-3xl text-3xl font-bold md:text-5xl">
-          Ready to build something better?
-        </h2>
-
-        <p className="mx-auto mt-5 max-w-xl text-gray-400">
-          Talk to INFINITECH about your next electrical, solar, security or
-          technology project.
-        </p>
-
-        <Link
-          href="/quote"
-          className="mt-8 inline-block rounded-full bg-cyan-400 px-8 py-4 font-bold text-black transition hover:scale-105"
-        >
-          Request a Quote →
-        </Link>
       </section>
     </main>
   );
-  }
+}
